@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ryh.thesrcfinder.mapper.DBreflasher">
+    <insert id="reflash" parameterType="java.util.List">
+        insert into information (src,name,type,size)
+        values
+        <foreach collection="list" item="information" separator=",">
+            (#{information.src}, #{information.name}, #{information.type}, #{information.size})
+        </foreach>
+    </insert>
+    <delete id="delete">
+        delete from information where 1=1;
+    </delete>
+</mapper>
